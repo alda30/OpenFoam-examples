@@ -14,8 +14,10 @@ FoamFile
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
+//For more info on dimensions refer to file entitled "P"
 dimensions      [0 1 -1 0 0 0 0];
 
+//Initial velocity field in 3 directions.
 internalField   uniform (0 0 0);
 
 boundaryField
@@ -23,6 +25,7 @@ boundaryField
     movingWall
     {
         type            fixedValue;
+        //A velocity of 1 m/s in x direction
         value           uniform (1 0 0);
     }
 

@@ -7,3 +7,4 @@ Procedure:
 	Then, type "paraFoam" to see the mesh before analysis, and exit paraview.
 	By typing "icoFoam" which is the solver, the code will be ran.
 	For visualization of the results just type "paraFoam" to see the results.
+	

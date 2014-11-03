@@ -15,7 +15,8 @@ FoamFile
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
+//Dimension of nu is [m^2 / s] and the amount of kinematic viscosity is 0.01.
 nu              nu [ 0 2 -1 0 0 0 0 ] 0.01;
-
+//For an icoFoam case, the only property that must be specified is the kinematic viscosity.
 
 // ************************************************************************* //

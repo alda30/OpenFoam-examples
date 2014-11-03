@@ -14,14 +14,32 @@ FoamFile
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-dimensions      [0 2 -2 0 0 0 0];
+/*Definition of the dimensions:
+The I/O format for a dimensionSet is 7 scalars delimited by square brackets, e.g.
+    [0 2 -1 0 0 0 0]
 
+No.     Property            SI unit             USCS unit
+            
+1       Mass                kilogram (kg)       pound-mass (lbm)
+2       Length              metre (m)           foot (ft)
+3       Time                        — — — — second (s) — — — —
+4       Temperature         Kelvin (K)          degree 
+5       Quantity            kilogram-mole (kgmol)   pound-mole (lbmol)
+6       Current                     — — — — ampere (A) — — — —
+7       Luminous intensity          — — — — candela (cd) — — — —
+
+*/
+dimensions      [0 2 -2 0 0 0 0];
+//----------------------------------------
+
+//The initial pore pressure existing in the problem domain.
 internalField   uniform 0;
 
 boundaryField
 {
     movingWall
     {
+        //"zeroGradient" means: the normal gradient of pressure is zero
         type            zeroGradient;
     }
 

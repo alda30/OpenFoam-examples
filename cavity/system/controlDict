@@ -19,16 +19,21 @@ application     icoFoam;
 
 startFrom       startTime;
 
+//Here the start time is zero, and it indicates that OpenFoam should read the initial conditions from the files existing in the folder entitled "0". OpenFoam automatically does it.
 startTime       0;
 
+//endTime refer to another variable specified one line below.
+//There are different conditions/constrols for ending the simulation. 
 stopAt          endTime;
 
 endTime         0.5;
 
+//Time increment. How to set that? refer to the tutorial webpage
 deltaT          0.005;
 
+//For visualisation purposes and writing the output to the disk we tell OpenFoam to save the results based on the time step.
 writeControl    timeStep;
-
+//But not at each time step (it will be huge data!). At every 20 time steps OpenFoam writes the data to the disk.
 writeInterval   20;
 
 purgeWrite      0;

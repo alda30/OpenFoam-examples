@@ -16,6 +16,8 @@ FoamFile
 
 convertToMeters 0.1;
 
+//Vertices of the block shown here: http://www.openfoam.org/docs/user/img/user6x.png
+//Apparently the order of the introducing vertices is important.
 vertices
 (
     (0 0 0)
@@ -28,37 +30,47 @@ vertices
     (0 1 0.1)
 );
 
+//Making a block of the previously introduced vertices by they order number.
 blocks
 (
+    //"hex" is the type of the block, which is hexagonal. Second parameter is the resolution of the meshing.
     hex (0 1 2 3 4 5 6 7) (20 20 1) simpleGrading (1 1 1)
 );
 
+//No edges.
 edges
 (
 );
 
 boundary
 (
+    //Name of the boundary of focus
     movingWall
     {
+        //The parameters of the boundary is determined here:
         type wall;
         faces
         (
+            //Introducing a face out of the vertices introduced before.
             (3 7 6 2)
         );
     }
+    //Another boundary condition
     fixedWalls
     {
         type wall;
         faces
         (
+            //Three fixed circumferential faces.
             (0 4 7 3)
             (2 6 5 1)
             (1 5 4 0)
         );
     }
+    
     frontAndBack
     {
+        //Note! for the 2D simulations the faces with normals pointing to the 3rd direction should be introduced as "empty" type of boundary condition.
         type empty;
         faces
         (
