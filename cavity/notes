@@ -1,4 +1,4 @@
-icoFOam:
+icoFoam:
 	icoFoam solves the incompressible laminar Navier-Stokes equations using the PISO algorithm. The code is inherently "transient", requiring an initial condition (such as zero velocity) and boundary conditions. The icoFOAM code can take mesh non-orthogonality into account with successive non-orthogonality iterations. The number of PISO corrections and non-orthogonality corrections are controlled through user input.
 
 Procedure:
