@@ -15,8 +15,11 @@ FoamFile
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
+//The choice of finite volume discretisation schemes is done here  at "fvSchemes"
+
 ddtSchemes
 {
+    //The method of solution, grid based : Euler
     default         Euler;
 }
 
@@ -39,6 +42,7 @@ laplacianSchemes
 
 interpolationSchemes
 {
+    //Interpolation method between the nodes in proximity.
     default         linear;
 }
 

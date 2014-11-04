@@ -15,6 +15,8 @@ FoamFile
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
+//The specification of the linear equation solvers and tolerances and other algorithm controls is made here, in the "fvSolution".
+
 solvers
 {
     p
@@ -38,6 +40,9 @@ PISO
 {
     nCorrectors     2;
     nNonOrthogonalCorrectors 0;
+    /*
+        In a closed incompressible system such as the cavity, pressure is relative: it is the pressure range that matters not the absolute values. In cases such as this, the solver sets a reference level by pRefValue in cell pRefCell. In this example both are set to 0. Changing either of these values will change the absolute pressure field, but not, of course, the relative pressures or velocity field. 
+    */
     pRefCell        0;
     pRefValue       0;
 }
