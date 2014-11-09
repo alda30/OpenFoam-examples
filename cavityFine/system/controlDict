@@ -26,13 +26,15 @@ startTime       0;
 //There are different conditions/constrols for ending the simulation. 
 stopAt          endTime;
 
-endTime         0.5;
+//Since the case is starting with a the solution obtained on the coarse mesh we only need to run it for a short period to achieve reasonable convergence to steady-state. Therefore the endTime should be set to 0.7 s. This came from experience!
+endTime         0.7;
 
-//Time increment. How to set that? refer to the tutorial webpage
-deltaT          0.005;
+//Since the mesh is finer now, the time increment should be halved.
+deltaT          0.0025;
 
-//For visualisation purposes and writing the output to the disk we tell OpenFoam to save the results based on the time step.
-writeControl    timeStep;
+//Using the option "runTime" OpenFOAM asks user to input the interval for writing data to the disk.
+//To gain similar intervals, user should set 0.1 as the writingInterval.
+writeControl    runTime;
 //But not at each time step (it will be huge data!). At every 20 time steps OpenFoam writes the data to the disk.
 writeInterval   20;
 

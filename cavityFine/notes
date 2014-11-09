@@ -1,9 +1,15 @@
-icoFoam:
-	icoFoam solves the incompressible laminar Navier-Stokes equations using the PISO algorithm. The code is inherently "transient", requiring an initial condition (such as zero velocity) and boundary conditions. The icoFOAM code can take mesh non-orthogonality into account with successive non-orthogonality iterations. The number of PISO corrections and non-orthogonality corrections are controlled through user input.
+In this case, the mesh resolution will now be increased by a factor of two in each direction. The results from the coarser mesh will be mapped onto the finer mesh to use as initial conditions for the problem. The solution from the finer mesh will then be compared with those from the coarser mesh.
+So, in summary: [previous result from cavity = initial condition of the cavityFine problem].
 
-Procedure:
-	The folder organization is important here. The folder entitled "0" contains the initial conditions needed for running the code. Once the analysis are finished, the output data (based on what you have set in the "/system/controlDict" file) be written to folders with the time namings.
-	- Go to terminal and in the root folder type "blockMesh" to generate the mesh.
-	- Then, type "paraFoam" to see the mesh before analysis, and exit paraview.
-	- By typing "icoFoam" which is the solver, the code will be ran.
-	- For visualization of the results just type "paraFoam" to see the results.
+Here, in this example, we aim to set the initial condition of the current problem to the last step conditions of the "cavity" problem. To do so:
+	- go to the root folder (i.e. exit the cavity directory)
+	- mkdir cavityFine
+	- cp -r cavity/constant cavityFine 		//copies constants 
+	- cp -r cavity/system cavityFine 		//copies the solver settings
+	- cd cavityFine							//enters the current problem directory
+	- mapFields ../cavity -consistent		//copies the last condition of the cavity problem as the initial conditions of the cavityFine problem.
+
+Since the mesh is finer now, the deltaT should be halved (set to 0.0025).
+
+In the contolDict file, the writingInterval option is set to runTime, so OpenFOAM asks user to input the writingInterval at the runtime.
+Since the case is starting with a the solution obtained on the coarse mesh we only need to run it for a short period to achieve reasonable convergence to steady-state. Therefore the endTime should be set to 0.7 s.
