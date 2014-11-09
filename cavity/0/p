@@ -29,7 +29,7 @@ No.     Property            SI unit             USCS unit
 7       Luminous intensity          — — — — candela (cd) — — — —
 
 */
-dimensions      [0 2 -2 0 0 0 0];
+dimensions      [0 2 -2 0 0 0 0]; // here [m^2 * s^-2]: dimensions of kinematic pressure.
 //----------------------------------------
 
 //The initial pore pressure existing in the problem domain.

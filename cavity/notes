@@ -2,9 +2,8 @@ icoFoam:
 	icoFoam solves the incompressible laminar Navier-Stokes equations using the PISO algorithm. The code is inherently "transient", requiring an initial condition (such as zero velocity) and boundary conditions. The icoFOAM code can take mesh non-orthogonality into account with successive non-orthogonality iterations. The number of PISO corrections and non-orthogonality corrections are controlled through user input.
 
 Procedure:
-	The folder organization is important here. The folder entitled "0" contains the initial conditions needed for running the code.
-	Go to terminal and in the root folder type "blockMesh" to generate the mesh.
-	Then, type "paraFoam" to see the mesh before analysis, and exit paraview.
-	By typing "icoFoam" which is the solver, the code will be ran.
-	For visualization of the results just type "paraFoam" to see the results.
-	
+	The folder organization is important here. The folder entitled "0" contains the initial conditions needed for running the code. Once the analysis are finished, the output data (based on what you have set in the "/system/controlDict" file) be written to folders with the time namings.
+	- Go to terminal and in the root folder type "blockMesh" to generate the mesh.
+	- Then, type "paraFoam" to see the mesh before analysis, and exit paraview.
+	- By typing "icoFoam" which is the solver, the code will be ran.
+	- For visualization of the results just type "paraFoam" to see the results.
