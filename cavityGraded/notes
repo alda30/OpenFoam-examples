@@ -1,0 +1,10 @@
+Changes:
+	1)	The graded mesh is used. Finer mesh in the boundaries:
+		In the cavity case the large variations in velocity can be expected near a wall and so in this part of the tutorial the mesh will be graded to be smaller in this region. By using the same number of cells, greater accuracy can be achieved without a significant increase in computational cost.
+		See blockMeshDict file
+		
+	2)	Reynolds number increased:
+	
+		As the Reynold number increases, the number of vortices increases so the mesh resolution around them will need to increase in order to resolve the more complicated flow patterns. In addition, as the Reynolds number increases the time to convergence increases. The user should monitor residuals and extend the endTime accordingly to ensure convergence.
+
+		The need to increase spatial and temporal resolution then becomes impractical as the flow moves into the turbulent regime, where problems of solution stability may also occur. Of course, many engineering problems have very high Reynolds numbers and it is infeasible to bear the huge cost of solving the turbulent behaviour directly. Instead Reynolds-averaged simulation (RAS) turbulence models are used to solve for the mean flow behaviour and calculate the statistics of the fluctuations. The additional equations and models for turbulent flow are implemented into a OpenFOAM solver called "pisoFoam".

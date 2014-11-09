@@ -1,6 +1,0 @@
-Changes:
-	1)	The graded mesh is used. Finer mesh in the boundaries:
-		In the cavity case the large variations in velocity can be expected near a wall and so in this part of the tutorial the mesh will be graded to be smaller in this region. By using the same number of cells, greater accuracy can be achieved without a significant increase in computational cost.
-		See blockMeshDict file
-	2)	A part of thoe domain is clipped to see the difference/
-	3)	Reynolds number increased.
