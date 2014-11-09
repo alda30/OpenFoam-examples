@@ -35,8 +35,8 @@ deltaT          0.0025;
 //Using the option "runTime" OpenFOAM asks user to input the interval for writing data to the disk.
 //To gain similar intervals, user should set 0.1 as the writingInterval.
 writeControl    runTime;
-//But not at each time step (it will be huge data!). At every 20 time steps OpenFoam writes the data to the disk.
-writeInterval   20;
+
+writeInterval   0.1;
 
 purgeWrite      0;
 

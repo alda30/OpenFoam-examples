@@ -13,3 +13,6 @@ Since the mesh is finer now, the deltaT should be halved (set to 0.0025).
 
 In the contolDict file, the writingInterval option is set to runTime, so OpenFOAM asks user to input the writingInterval at the runtime.
 Since the case is starting with a the solution obtained on the coarse mesh we only need to run it for a short period to achieve reasonable convergence to steady-state. Therefore the endTime should be set to 0.7 s.
+-----------------------------------------------------------
+Plotting graphs:
+To do so, refer to http://www.openfoam.org/docs/user/cavity.php#x5-250002.1.5
