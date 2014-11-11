@@ -9,13 +9,31 @@ FoamFile
 {
     version     2.0;
     format      ascii;
-    class       dictionary;
-    location    "constant";
-    object      transportProperties;
+    class       volScalarField;
+    object      nuTilda;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-//Since the Reynolds number is required to be increased by a factor of 10, decrease the kinematic viscosity by a factor of 10, i.e. to 0.001.
-nu              nu [ 0 2 -1 0 0 0 0 ] 0.001;
+dimensions      [0 2 -1 0 0 0 0];
+
+internalField   uniform 0;
+
+boundaryField
+{
+    movingWall
+    {
+        type            zeroGradient;
+    }
+
+    fixedWalls
+    {
+        type            zeroGradient;
+    }
+
+    frontAndBack
+    {
+        type            empty;
+    }
+}
 
 // ************************************************************************* //

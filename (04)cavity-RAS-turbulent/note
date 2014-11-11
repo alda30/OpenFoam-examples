@@ -1,0 +1,5 @@
+(1)Reynolds-Averaged Simulation (RAS):
+	As the Reynolds number increases, if the "icoFoam" solver (which is developed for solving isothermal, laminar and incompressible fluid flows) is used, more time will be needed for the simulation to converge. It will be overwhelming and expensive to simulate highly turbulent flow using icoFoam solver. Thus, for the simulation of turbulent flow, it is better to switch the solver from icoFoam to "pisoFoam" which is a solver based on RAS method. pisoFoam used to solve the mean flow behaviour and calculate the statistics of the fluctuations. The standard k-epsilon model, with wall functions will be used to solve this tutorial with the Reynolds number of 10,000. Two extra variables are solved for:
+		(a) k:			turbulent kinetic energy
+		(b) epsilon:	turbulent dissipation rate
+
