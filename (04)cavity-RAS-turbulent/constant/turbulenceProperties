@@ -16,6 +16,14 @@ FoamFile
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 simulationType  RASModel;
+/*
+	Other options fo the simulationType item are:
+		- laminar
+		- RASModel
+		- LESModel
+	
+	Forexample, if RASModel is selected, you need to set a file entitled "RASProperties" in the "constant" directory.
+/*
 
 
 // ************************************************************************* //

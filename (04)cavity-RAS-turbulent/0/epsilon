@@ -15,6 +15,8 @@ FoamFile
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
+//Settings for boundary conditions for epsilon
+
 dimensions      [0 2 -3 0 0 0 0];
 
 internalField   uniform 0.000765;
@@ -29,6 +31,9 @@ boundaryField
     fixedWalls
     {
         type            epsilonWallFunction;
+        /*
+            The initial Values of k and epsilon are set using an estimated fluctuating component of velocity "U'" and a turbulent length scale, "l". For the calculation formulas refer to the section 2.1.8 in http://www.openfoam.org/docs/user/cavity.php#x5-9016r2 .
+        */
         value           uniform 0.000765;
     }
     frontAndBack

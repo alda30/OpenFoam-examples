@@ -15,7 +15,9 @@ FoamFile
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-dimensions      [0 2 -1 0 0 0 0];
+//A range of wall function models is available in OpenFOAM that are applied as boundary conditions on individual patches. This enables different wall function models to be applied to different wall regions.
+
+dimensions      [0 2 -1 0 0 0 0]; //units: [m^2/s]
 
 internalField   uniform 0;
 
@@ -23,6 +25,7 @@ boundaryField
 {
     movingWall
     {
+        //"nutWallFunction is a standard wall function". Other wall function models include the rough wall functions, specified though the nutRoughWallFunction keyword. 
         type            nutkWallFunction;
         value           uniform 0;
     }

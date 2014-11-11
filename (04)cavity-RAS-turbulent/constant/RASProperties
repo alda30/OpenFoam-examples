@@ -15,10 +15,12 @@ FoamFile
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-RASModel        kEpsilon;
+RASModel        kEpsilon; //the model in use is k-epsilon
+// the list of available models can be found here: http://www.openfoam.org/docs/user/standard-libraries.php#x15-91267r9
 
 turbulence      on;
 
+//This is an optional option that makes the coefficients to be printed in standard output, i.e. in the terminal. After the simulation is finished, a new file entitled "(kEpsilon)Coeffs" containing these coeffiicients will be created.
 printCoeffs     on;
 
 

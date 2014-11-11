@@ -15,7 +15,9 @@ FoamFile
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-dimensions      [0 2 -2 0 0 0 0];
+//Settings for boundary conditions for k
+
+dimensions      [0 2 -2 0 0 0 0]; //Units: [m^2/s^2]
 
 internalField   uniform 0.00325;
 
@@ -23,7 +25,11 @@ boundaryField
 {
     movingWall
     {
+        // "kqRWallFunction" is a generic boundary condition that can be applied to any field that are of a turbulent kinetic energy type, like parameters as k, q and R (Reynolds stress). Thats why the name begins with "kqR".
         type            kqRWallFunction;
+        /*
+            The initial Values of k and epsilon are set using an estimated fluctuating component of velocity "U'" and a turbulent length scale, "l". For the calculation formulas refer to the section 2.1.8 in http://www.openfoam.org/docs/user/cavity.php#x5-9016r2 .
+        */
         value           uniform 0.00325;
     }
     fixedWalls
