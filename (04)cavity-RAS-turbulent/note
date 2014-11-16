@@ -1,6 +1,6 @@
 Turbulent flow solvers:
 
-	(1)	Reynolds-Averaged Simulation (RAS or RANS):
+	(1)* Reynolds-Averaged Simulation (RAS or RANS):
 			As the Reynolds number increases, if the "icoFoam" solver (which is developed for solving isothermal, laminar and incompressible fluid flows) is used, more time will be needed for the simulation to converge. It will be overwhelming and expensive to simulate highly turbulent flow using icoFoam solver. Thus, for the simulation of turbulent flow, it is better to switch the solver from icoFoam to "pisoFoam" which is a solver based on RAS method. pisoFoam used to solve the mean flow behaviour and calculate the statistics of the fluctuations. The standard k-epsilon model, with wall functions will be used to solve this tutorial with the Reynolds number of 10,000. Two extra variables are solved for:
 				(a) k:			turbulent kinetic energy
 				(b) epsilon:	turbulent dissipation rate
@@ -8,8 +8,12 @@ Turbulent flow solvers:
 			RAS (also called RANS = Reynolds Averaged Navier-Stokes) provides the averaged values for the turbulent flow. Its faster but less accurate. Velocities are averaged over the time period of deltaT, and the velocities cannot be monitored over the time span of wish.
 
 	(2) Large-Eddy Simulation (LES):
-		When it comes to the vortex and study of the vortex flows in CFD, LES is more accurate. However, the better accuracy is gained by longer computation time. The method is based on filtering rather than averaging, so if you want to use this method, first you need to set a suitable filter size. All flow scales larger than the filter size specified will be exactly calculated and the scales smaller than filter size will be averaged.
+			When it comes to the vortex and study of the vortex flows in CFD, LES is more accurate. However, the better accuracy is gained by longer computation time. The method is based on filtering rather than averaging, so if you want to use this method, first you need to set a suitable filter size. All flow scales larger than the filter size specified will be exactly calculated and the scales smaller than filter size will be averaged.
 
 ===================================================================================
 For running the simulation with RANS or LES model (for turbulent flows), the command "pisoFoam" is used.
 ===================================================================================
+
+* Here RANS model is used with "k-epsilon" model.
+Below you can find a list of compatible models with RAS solver:
+http://www.openfoam.org/features/RAS.php
